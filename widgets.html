@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajo de Alejandro · Widgets</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="widgets.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">Trabajo de <span>Alejandro</span></a>
+    <nav class="nav-links">
+      <a data-page="index.html" href="index.html">Inicio</a>
+      <a data-page="decada-moderada.html" href="decada-moderada.html">Década Moderada</a>
+      <a data-page="bienio-progresista.html" href="bienio-progresista.html">Bienio</a>
+      <a data-page="union-liberal.html" href="union-liberal.html">Unión Liberal</a>
+      <a data-page="revolucion-1868.html" href="revolucion-1868.html">1868</a>
+      <a data-page="sexenio-democratico.html" href="sexenio-democratico.html">Sexenio</a>
+      <a data-page="widgets.html" href="widgets.html">Widgets</a>
+      <a data-page="calculadora-pau.html" href="calculadora-pau.html">Calculadora PAU</a>
+    </nav>
+  </div>
+</header>
+<main class="page">
+  <section class="page-header">
+    <a class="back-link" href="index.html">← Volver al inicio</a>
+    <h1 class="page-title">Widgets</h1>
+    <p>He reunido aquí todos los widgets para que la parte informativa quede separada. Así cada apartado de historia tiene su propia página y esta sección funciona como bloque independiente de utilidades.</p>
+  </section>
+
+  <section class="widgets-layout">
+    <article class="widget-card">
+      <h3>⏰ Reloj digital</h3>
+      <p>Hora actual en tiempo real.</p>
+      <div id="reloj-display" class="clock">00:00:00</div>
+    </article>
+
+    <article class="widget-card">
+      <h3>🌤️ Clima actual</h3>
+      <p>Busca el tiempo de cualquier ciudad.</p>
+      <div class="form-row">
+        <input class="input" id="ciudad-input" type="text" placeholder="Ejemplo: Valencia, Madrid, París">
+        <button class="btn btn-primary" onclick="obtenerClima()">Buscar</button>
+      </div>
+      <div id="clima-resultado" class="widget-result"><div class="result-box">Escribe una ciudad para ver el clima.</div></div>
+    </article>
+
+    <article class="widget-card">
+      <h3>💱 Convertidor de monedas</h3>
+      <p>Conversión rápida desde una moneda base.</p>
+      <div class="inline-row">
+        <input class="input" id="monto" type="number" value="100" min="0" step="0.01" placeholder="Cantidad">
+        <select class="select" id="moneda-origen">
+          <option value="EUR">EUR</option>
+          <option value="USD">USD</option>
+          <option value="GBP">GBP</option>
+          <option value="JPY">JPY</option>
+          <option value="MXN">MXN</option>
+          <option value="ARS">ARS</option>
+          <option value="CNY">CNY</option>
+          <option value="CLP">CLP</option>
+        </select>
+        <button class="btn btn-primary" onclick="convertirMoneda()">Convertir</button>
+      </div>
+      <div id="resultado-moneda" class="widget-result"><div class="result-box">Introduce una cantidad para convertir.</div></div>
+    </article>
+
+    <article class="widget-card">
+      <h3>💭 Cita del día</h3>
+      <p>Consejo aleatorio cargado desde API.</p>
+      <div class="result-box quote-box">
+        <div>
+          <p id="cita-texto">Cargando cita...</p>
+          <p id="cita-autor"></p>
+        </div>
+      </div>
+      <div class="card-actions"><button class="btn" onclick="obtenerCita()">Nueva cita</button></div>
+    </article>
+
+    <article class="widget-card">
+      <h3>🖼️ Galería</h3>
+      <p>Selección visual cargada automáticamente.</p>
+      <div id="imagenes-grid" class="gallery-grid"></div>
+      <div class="card-actions"><button class="btn" onclick="cargarImagenes()">Recargar imágenes</button></div>
+    </article>
+
+    <article class="widget-card">
+      <h3>😂 Chiste aleatorio</h3>
+      <p>Un chiste rápido para probar llamadas API.</p>
+      <div class="result-box joke-box"><p id="chiste-texto">Cargando chiste...</p></div>
+      <div class="card-actions"><button class="btn" onclick="obtenerChiste()">Nuevo chiste</button></div>
+    </article>
+  </section>
+</main>
+</body>
+</html>

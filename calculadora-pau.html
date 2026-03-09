@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajo de Alejandro · Calculadora PAU</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="widgets.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">Trabajo de <span>Alejandro</span></a>
+    <nav class="nav-links">
+      <a data-page="index.html" href="index.html">Inicio</a>
+      <a data-page="decada-moderada.html" href="decada-moderada.html">Década Moderada</a>
+      <a data-page="bienio-progresista.html" href="bienio-progresista.html">Bienio</a>
+      <a data-page="union-liberal.html" href="union-liberal.html">Unión Liberal</a>
+      <a data-page="revolucion-1868.html" href="revolucion-1868.html">1868</a>
+      <a data-page="sexenio-democratico.html" href="sexenio-democratico.html">Sexenio</a>
+      <a data-page="widgets.html" href="widgets.html">Widgets</a>
+      <a data-page="calculadora-pau.html" href="calculadora-pau.html">Calculadora PAU</a>
+    </nav>
+  </div>
+</header>
+<main class="page">
+  <section class="page-header">
+    <a class="back-link" href="index.html">← Volver al inicio</a>
+    <h1 class="page-title">Calculadora PAU</h1>
+    <p>Calcula tu nota de admisión para la Comunitat Valenciana con un diseño integrado dentro de la web.</p>
+  </section>
+
+  <section class="calc-layout">
+    <div class="calc-card">
+      <h2>Datos</h2>
+      <div style="margin-top:18px;">
+        <label>Nota media de Bachillerato (0-10)</label>
+        <input type="number" id="nota_bach" min="0" max="10" step="0.01" placeholder="Ejemplo: 7.85">
+      </div>
+
+      <div style="margin-top:22px;">
+        <h2>Fase obligatoria</h2>
+        <p class="calc-note">Introduce las 5 notas de la fase obligatoria.</p>
+        <div class="calc-grid-2" style="margin-top:14px;">
+          <div><label>Lengua Castellana y Literatura II</label><input type="number" id="lengua" min="0" max="10" step="0.01" placeholder="0-10"></div>
+          <div><label>Valencià: Llengua i Literatura II</label><input type="number" id="valencia" min="0" max="10" step="0.01" placeholder="0-10"></div>
+          <div><label>Idioma Extranjero</label><input type="number" id="idioma" min="0" max="10" step="0.01" placeholder="0-10"></div>
+          <div><label>Historia de España / Filosofía</label><input type="number" id="historia" min="0" max="10" step="0.01" placeholder="0-10"></div>
+        </div>
+        <div style="margin-top:14px;"><label>Materia de modalidad</label><input type="number" id="modalidad" min="0" max="10" step="0.01" placeholder="0-10"></div>
+      </div>
+
+      <div style="margin-top:22px;">
+        <h2>Fase de admisión</h2>
+        <p class="calc-note">Solo cuentan si la nota es igual o superior a 5.</p>
+        <div class="calc-grid-2" style="margin-top:14px;">
+          <div><label>Específica 1</label><input type="number" id="especifica1" min="0" max="10" step="0.01" placeholder="0-10"></div>
+          <div><label>Específica 2</label><input type="number" id="especifica2" min="0" max="10" step="0.01" placeholder="0-10"></div>
+        </div>
+      </div>
+
+      <div class="card-actions"><button class="btn btn-primary" onclick="calcularNota()">Calcular nota</button></div>
+    </div>
+
+    <div class="calc-card">
+      <h2>Resultado</h2>
+      <div class="note-big" id="nota_final">0.000</div>
+      <p class="calc-note" style="text-align:center;">Nota de admisión sobre 14</p>
+      <div class="breakdown">
+        <div class="break-item"><span class="value" id="res_bach">-</span><span class="label">60% Bachillerato</span></div>
+        <div class="break-item"><span class="value" id="res_fase">-</span><span class="label">40% Fase obligatoria</span></div>
+        <div class="break-item"><span class="value" id="res_base">-</span><span class="label">Nota base</span></div>
+        <div class="break-item"><span class="value" id="res_extra">-</span><span class="label">Puntos extra</span></div>
+      </div>
+      <div class="status-box" id="mensaje">Aquí aparecerá una valoración de tu resultado.</div>
+      <div class="panel" style="margin-top:18px; padding:18px; border-radius:18px; box-shadow:none;">
+        <h2>Fórmula</h2>
+        <p class="calc-note"><strong>Nota base</strong> = (0.6 × Bachillerato) + (0.4 × media de los 5 exámenes)<br><strong>Nota de admisión</strong> = Nota base + (E1 × 0.2) + (E2 × 0.2)</p>
+      </div>
+    </div>
+  </section>
+</main>
+</body>
+</html>
